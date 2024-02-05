@@ -1,7 +1,7 @@
 const express = require('express');
 const cors=require('cors')
 const mongoose = require('mongoose');
-const userLogin=require('./models/userLogin')
+const userLogin=require('./Model/userLogin')
 const app = express();
 const PORT = process.env.PORT || 4000;
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://sandeep12:Sandeep123@cluster0.csrxvjy.mongodb.net/sample";
