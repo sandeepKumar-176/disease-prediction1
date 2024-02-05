@@ -1,14 +1,15 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const cors=require('cors')
-const userLogin=require('./Model/userLogin')
+const mongoose = require('mongoose');
+const userLogin=require('./models/userLogin')
 const app = express();
 const PORT = process.env.PORT || 4000;
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://sandeep12:Sandeep123@cluster0.csrxvjy.mongodb.net/sample";
+
+
 app.use(cors())
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 app.use(express.json())
+
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log("Connected to MongoDB");
@@ -22,7 +23,7 @@ app.post('/', async (req, res) => {
     const password = "hari"; */
     const {email,password}=req.body
     const login= await userLogin.find({email:email,password:password})
-    console.log(login)
+    // console.log(login)
     if(login.length>0)
     res.json({ "data": login });
     else
