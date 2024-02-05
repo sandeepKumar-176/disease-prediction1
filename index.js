@@ -7,7 +7,7 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://sandeep12:Sandeep1
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+app.use(express.json())
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log("Connected to MongoDB");
