@@ -1,10 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors=require('cors')
 const userLogin=require('./Model/userLogin')
 const app = express();
 const PORT = process.env.PORT || 4000;
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://sandeep12:Sandeep123@cluster0.csrxvjy.mongodb.net/sample";
-
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.json())
