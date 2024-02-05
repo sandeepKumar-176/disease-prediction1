@@ -25,9 +25,9 @@ app.post('/', async (req, res) => {
     const login= await userLogin.find({email:email,password:password})
     // console.log(login)
     if(login.length>0)
-    res.json({ "data": login });
+    res.json({ "data": login,status:true });
     else
-    res.json({"data":false})/*  */
+    res.json({"data":false,status:false})/*  */
 });
 
 app.post('/signup', async (req, res) => {
