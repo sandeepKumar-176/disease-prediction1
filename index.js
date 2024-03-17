@@ -23,7 +23,7 @@ app.post('/', async (req, res) => {
     const password = "hari"; */
     const {email,password}=req.body
     const login= await userLogin.find({email:email,password:password})
-    // console.log(login)
+     console.log(login)
     if(login.length>0)
     res.json({ "data": login,status:true });
     else
