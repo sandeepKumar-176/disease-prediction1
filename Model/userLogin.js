@@ -1,5 +1,9 @@
 const mongoose = require('mongoose')
 const login=mongoose.Schema({
+    name:{
+        type: String,
+        require:true
+    },
     email:{
         type: String,
         required:true
