@@ -31,16 +31,16 @@ app.post('/', async (req, res) => {
 });
 
 app.post('/signup', async (req, res) => {
-         const{email,password}=req.body
+         const{name,email,password}=req.body
         /* const email="sandeep@gmail.com"
         const password="sandeep" */
           try {
             const existingUser = await userLogin.findOne({ email: email });
             if (existingUser) {
-              return res.json({ status: false });
+              return res.json({ status: false,ui_message:"Already have a Account" });
             }
             else{
-            const newUser = new userLogin({ email: email, password: password });
+            const newUser = new userLogin({ name:name,email: email, password: password });
             const savedUser = await newUser.save(); 
             return res.json({ status:true });
             }
